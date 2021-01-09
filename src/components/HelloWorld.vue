@@ -44,18 +44,19 @@ export default {
      display:flex;
      flex-direction: column;
  }
- .hide{
-     display:none;
- }
 
  .items {
-     display: flex;
-     flex-wrap: wrap;
+     display: table;
  }
 
  .items > .item {
      width: 29%;
      margin: 2%;
+     display: inline-block;
+ }
+
+  .items > .item.hide{
+     display:none;
  }
 
  h3 {
