@@ -3,7 +3,7 @@
     <div class="upload">
       <vue-csv-import
           v-model="csv"
-          :fields="{rowOne: {required: false, label: 'First Slot',autoMatch:True }, rowTwo :{required: true, label: 'Second Slot',autoMatch:True}, rowThree: {required: true, label: 'Third Slot',autoMatch:True}}"
+          :fields="{customerName: {required: false, label: 'Customer Name',autoMatch:True }, orderDetails :{required: true, label: 'Order Details',autoMatch:True}, bags: {required: true, label: 'Bags',autoMatch:True}}"
       >
         <!-- <vue-csv-toggle-headers></vue-csv-toggle-headers> -->
         <vue-csv-errors></vue-csv-errors>
@@ -18,9 +18,9 @@
     </div>
     <div class="items">
       <div v-for="(item,index) in csv" class="item" v-bind:key="index" v-bind:class="{hide: index < rowstoskip}">
-        <div>{{item.rowOne}}</div>
-        <div>{{item.rowTwo}}</div>
-        <div>{{item.rowThree}}</div>
+        <div>{{item.customerName}}</div>
+        <div>{{item.orderDetails}}</div>
+        <div>{{item.bags}}</div>
       </div>
     </div>
   </div>
