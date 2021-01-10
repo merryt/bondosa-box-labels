@@ -8,20 +8,29 @@
         <!-- <vue-csv-toggle-headers></vue-csv-toggle-headers> -->
         <vue-csv-errors></vue-csv-errors>
         <vue-csv-input></vue-csv-input>
-        <vue-csv-map></vue-csv-map>
+        <vue-csv-map
+            :noThead="true"
+        ></vue-csv-map>
         <div>
-          <label for="rowstoskip">Rows to skip</label>
-          <input type="number" id="rowstoskip" name="rowstoskip" v-model="rowstoskip" placeholder="0"
-          >
+          <!-- <label for="rowstoskip">Rows to skip</label>
+               <input type="number" id="rowstoskip" name="rowstoskip" v-model="rowstoskip" placeholder="0"
+               > -->
        </div>
       </vue-csv-import>
+      <hr />
+      <ul>
+        <!-- <li>Header rows will automatically be skipped.</li> -->
+        <li>If there isn't a quantity of bags or a name it won't get published</li>
+      </ul>
     </div>
     <div class="items">
-      <div v-for="(item,index) in csv" class="item" v-bind:key="index" v-bind:class="{hide: index < rowstoskip}">
-        <div>{{item.customerName}}</div>
-        <div>{{item.orderDetails}}</div>
-        <div>{{item.bags}}</div>
-      </div>
+      <template v-for="(item,index) in csv"  v-bind:key="index" >
+        <div v-for="bag in parseInt(item.bags)" class="item" v-bind:key="bag" v-bind:class="{hide: index < rowstoskip || !item.customerName}">
+          <div><strong>{{item.customerName}}</strong></div>
+          <div><em>{{item.orderDetails}}</em></div>
+          <div>bag <strong>{{bag}}</strong> of <strong>{{item.bags}}</strong></div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -44,6 +53,9 @@ export default {
      display:flex;
      flex-direction: column;
  }
+ .upload > input{
+     margin: 0 auto 20px auto;
+ }
 
  .items {
      display: table;
@@ -62,13 +74,8 @@ export default {
  h3 {
      margin: 40px 0 0;
  }
- ul {
-     list-style-type: none;
-     padding: 0;
- }
- li {
-     display: inline-block;
-     margin: 0 10px;
+ li{
+     text-align: left;
  }
  a {
      color: #42b983;
