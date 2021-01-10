@@ -25,7 +25,7 @@
     </div>
     <div class="items">
       <template v-for="(item,index) in csv"  v-bind:key="index" >
-        <div v-for="bag in parseInt(item.bags)" class="item" v-bind:key="bag" v-bind:class="{hide: index < rowstoskip || !item.customerName}">
+        <div v-for="bag in parseInt(item.bags)" class="item" v-bind:key="bag" v-bind:class="{hide: index < rowstoskip || !item.customerName || !parseInt(item.bags)}">
           <div><strong>{{item.customerName}}</strong></div>
           <div><em>{{item.orderDetails}}</em></div>
           <div>bag <strong>{{bag}}</strong> of <strong>{{item.bags}}</strong></div>
