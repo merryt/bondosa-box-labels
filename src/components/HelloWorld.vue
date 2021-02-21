@@ -64,8 +64,8 @@
               bag <strong>{{ bag }}</strong> of <strong>{{ item.bags }}</strong>
             </div>
             <div v-if="item.driver">
-              <p>{{ item.driver }}</p>
-              <p>{{ item.stopNumber }}</p>
+              <p>Driver #: {{ item.driver }}</p>
+              <p>Stop #:{{ item.stopNumber }}</p>
             </div>
           </div>
         </template>
