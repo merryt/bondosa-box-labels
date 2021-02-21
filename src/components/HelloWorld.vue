@@ -63,7 +63,7 @@
             <div>
               bag <strong>{{ bag }}</strong> of <strong>{{ item.bags }}</strong>
             </div>
-            <div v-if="item.driver">
+            <div v-if="item.driver" class="driver">
               <p>Driver #: {{ item.driver }}</p>
               <p>Stop #:{{ item.stopNumber }}</p>
             </div>
@@ -108,6 +108,10 @@ export default {
 
 .items > .item.hide {
   display: none;
+}
+.driver {
+  display: flex;
+  justify-content: space-around;
 }
 
 h3 {
