@@ -101,7 +101,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .name > strong {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .upload {
