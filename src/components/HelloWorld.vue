@@ -60,7 +60,7 @@
             v-bind:key="bag"
             v-bind:class="{ hide: index < rowstoskip || !item.customerName }"
           >
-            <div>
+            <div class="name">
               <strong>{{ item.customerName }}</strong>
             </div>
             <div v-if="item.dietaryRestrictions">
@@ -100,6 +100,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.name > strong {
+  font-size: 16px;
+}
+
 .upload {
   display: flex;
   flex-direction: column;
