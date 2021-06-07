@@ -21,7 +21,16 @@
           },
           bags: { required: true, label: 'Bags', autoMatch: True },
           driver: { required: false, label: 'Driver', autoMatch: True },
-          stopNumber: { required: false, label: 'Stop Number', autoMatch: True }
+          stopNumber: {
+            required: false,
+            label: 'Stop Number',
+            autoMatch: True
+          },
+          deliveryDate: {
+            required: false,
+            label: 'Deliery Date',
+            autoMatch: True
+          }
         }"
       >
         <!-- <vue-csv-toggle-headers></vue-csv-toggle-headers> -->
@@ -66,6 +75,9 @@
             <div v-if="item.driver" class="driver">
               <p>Driver #: {{ item.driver }}</p>
               <p>Stop #:{{ item.stopNumber }}</p>
+            </div>
+            <div v-if="item.driver" class="date">
+              <p>Driver Date: {{ item.deliveryDate }}</p>
             </div>
           </div>
         </template>
