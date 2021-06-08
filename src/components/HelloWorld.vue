@@ -77,7 +77,7 @@
               <p>Stop #:{{ item.stopNumber }}</p>
             </div>
             <div v-if="item.deliveryDate" class="date">
-              <p>Driver Date: {{ item.deliveryDate }}</p>
+              <p>Delivery Date: {{ item.deliveryDate }}</p>
             </div>
           </div>
         </template>
